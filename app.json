@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "globofigs",
+    "slug": "globofigs",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
