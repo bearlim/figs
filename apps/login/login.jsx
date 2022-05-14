@@ -3,12 +3,9 @@ import { Text, View, ScrollView } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
   return (
-    <ScrollView
-      style={{
-        flex: 1,
-        backgroundColor: "#000",
-      }}
-    ></ScrollView>
+    <View>
+      <Text>Glogofigs</Text>
+    </View>
   );
 };
 
