@@ -1,10 +1,11 @@
 import React from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, Button } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>Glogofigs</Text>
+      <Text>Olá</Text>
+      <Button title="Login" onPress={() => navigation.navigate("HomeScreen")} />
     </View>
   );
 };
