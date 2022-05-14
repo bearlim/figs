@@ -13,6 +13,8 @@ const FlatButton = ({ text, func }) => {
 
 const style = StyleSheet.create({
   button: {
+    alignSelf: "center",
+    marginTop: 25,
     borderRadius: 12,
     backgroundColor: "#88304E",
     width: 305,
@@ -23,7 +25,7 @@ const style = StyleSheet.create({
   buttonText: {
     color: "#FFFFFF",
     alignSelf: "center",
-    fontSize: 15,
+    fontWeight: "800",
   },
 });
 

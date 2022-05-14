@@ -1,5 +1,4 @@
 import React from "react";
-import LinearGradient from "react-native-linear-gradient";
 import {
   Text,
   View,
@@ -10,15 +9,41 @@ import {
   Alert,
 } from "react-native";
 import FlatButton from "../../components/button/button";
+import FacebookButton from "../../components/button/facebook/button";
+import GoogleButton from "../../components/button/google/button";
+import { LinearGradient } from "expo-linear-gradient";
+import MaskedView from "@react-native-masked-view/masked-view";
 
 const LoginScreen = ({ navigation }) => {
   const [dsEmail, dsEmailSet] = React.useState();
   const [dsSenha, dsSenhaSet] = React.useState();
 
+  const onSubmiss = () => {
+    Alert.alert(dsEmail);
+  };
+
   return (
     <ScrollView>
       <View style={style.brandTitleView}>
-        <Text style={style.brandTitle}>globofigs.com</Text>
+        <MaskedView
+          maskElement={
+            <Text
+              style={[style.brandTitle, { backgroundColor: "transparent" }]}
+            >
+              globofigs.com
+            </Text>
+          }
+        >
+          <LinearGradient
+            colors={["#88304E", "#311D3F"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <Text style={[style.brandTitle, { opacity: 0 }]}>
+              globofigs.com
+            </Text>
+          </LinearGradient>
+        </MaskedView>
       </View>
       <View style={style.brandTitleView}>
         <Text style={style.optionChoice}>Escolha uma opção para entrar</Text>
@@ -30,7 +55,11 @@ const LoginScreen = ({ navigation }) => {
         <Text style={{ marginLeft: 10, color: "rgba(0, 0, 0, 0.397)" }}>
           Email
         </Text>
-        <TextInput style={style.inputBorder} onChangeText={dsEmailSet} />
+        <TextInput
+          style={style.inputBorder}
+          onChangeText={dsEmailSet}
+          placeholder="Digite o seu e-mail"
+        />
 
         <Text
           style={{
@@ -45,16 +74,41 @@ const LoginScreen = ({ navigation }) => {
           style={style.inputBorder}
           onChangeText={dsSenhaSet}
           secureTextEntry={true}
+          placeholder="Digite sua senha"
         />
 
         <Text style={{ alignSelf: "center", marginTop: 35, color: "#88304E" }}>
           {" "}
           ESQUECEU A SENHA?
         </Text>
-        <View style={{ alignSelf: "center", marginTop: 25 }}>
-          <FlatButton text="ENTRAR" />
+        <FlatButton text="ENTRAR" func={onSubmiss} />
+
+        <Text
+          style={{
+            alignSelf: "center",
+            marginTop: 30,
+            marginBottom: 30,
+            color: "rgba(0, 0, 0, 0.31)",
+          }}
+        >
+          Ou
+        </Text>
+        <View
+          style={{
+            flexWrap: "wrap",
+            alignItems: "flex-start",
+            flexDirection: "row",
+            marginLeft: 15,
+          }}
+        >
+          <View style={{}}>
+            <FacebookButton />
+          </View>
+          <Text>{"\n"}</Text>
+          <Text>{"\n"}</Text>
+          <Text>{"\n"}</Text>
+          <GoogleButton />
         </View>
-        <View style={{ borderBottomColor: "black", borderBottomWidth: 1 }} />
       </View>
     </ScrollView>
   );
@@ -69,6 +123,7 @@ const style = StyleSheet.create({
   },
   brandTitle: {
     fontSize: 48,
+    fontWeight: "700",
   },
   optionChoice: {
     color: "rgba(0, 0, 0, 0.31)",
