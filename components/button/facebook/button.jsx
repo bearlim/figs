@@ -10,6 +10,7 @@ const FacebookButton = ({ func }) => {
           name="logo-facebook"
           size={28}
           backgroundColor="transparent"
+          style={{ marginLeft: 9 }}
         />
       </View>
     </TouchableOpacity>
@@ -24,7 +25,7 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#3B5998",
-    borderRadius: 14,
+    borderRadius: 17,
   },
 });
 
