@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 import FlatButton from "../../components/button/button";
 import FacebookButton from "../../components/button/facebook/button";
@@ -19,7 +20,11 @@ const LoginScreen = ({ navigation }) => {
   const [dsSenha, dsSenhaSet] = React.useState();
 
   const onSubmiss = () => {
-    Alert.alert(dsEmail);
+    Alert.alert(dsEmail + " " + dsSenha);
+  };
+
+  const eventoParaCadastrar = () => {
+    Alert.alert("Evento para cadastrar");
   };
 
   return (
@@ -109,6 +114,18 @@ const LoginScreen = ({ navigation }) => {
           <Text>{"\n"}</Text>
           <GoogleButton />
         </View>
+
+        <View style={style.vwEsqueceuSenha}>
+          <TouchableOpacity onPress={eventoParaCadastrar}>
+            <Text style={style.btEsqueceuSenha}>
+              Não possui login?
+              <Text style={{ color: "#88304E", fontWeight: "700" }}>
+                {" "}
+                CADASTRE-SE
+              </Text>
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -119,7 +136,7 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 60,
+    marginTop: 50,
   },
   brandTitle: {
     fontSize: 48,
@@ -134,7 +151,7 @@ const style = StyleSheet.create({
     flex: 1,
     marginLeft: 31,
     marginRight: 31,
-    marginTop: 70,
+    marginTop: 40,
   },
 
   inputBorder: {
@@ -156,6 +173,17 @@ const style = StyleSheet.create({
 
   btLogin: {
     height: 65,
+  },
+
+  vwEsqueceuSenha: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 35,
+  },
+
+  btEsqueceuSenha: {
+    color: "rgba(0, 0, 0, 0.31)",
+    fontSize: 20,
   },
 });
 
