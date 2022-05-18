@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
           }
         >
           <LinearGradient
-            colors={["#88304E", "#311D3F"]}
+            colors={["hsl(340, 80%, 36.1%)", "#311D3F"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
           >
@@ -82,7 +82,13 @@ const LoginScreen = ({ navigation }) => {
           placeholder="Digite sua senha"
         />
 
-        <Text style={{ alignSelf: "center", marginTop: 35, color: "#88304E" }}>
+        <Text
+          style={{
+            alignSelf: "center",
+            marginTop: 35,
+            color: "hsl(340, 60%, 36.1%)",
+          }}
+        >
           {" "}
           ESQUECEU A SENHA?
         </Text>
@@ -119,7 +125,9 @@ const LoginScreen = ({ navigation }) => {
           <TouchableOpacity onPress={eventoParaCadastrar}>
             <Text style={style.btEsqueceuSenha}>
               Não possui login?
-              <Text style={{ color: "#88304E", fontWeight: "700" }}>
+              <Text
+                style={{ color: "hsl(340, 80%, 36.1%)", fontWeight: "700" }}
+              >
                 {" "}
                 CADASTRE-SE
               </Text>
@@ -178,7 +186,7 @@ const style = StyleSheet.create({
   vwEsqueceuSenha: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 35,
+    marginTop: 40,
   },
 
   btEsqueceuSenha: {
