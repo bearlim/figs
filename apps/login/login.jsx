@@ -92,7 +92,10 @@ const LoginScreen = ({ navigation }) => {
           {" "}
           ESQUECEU A SENHA?
         </Text>
-        <FlatButton text="ENTRAR" func={onSubmiss} />
+        <FlatButton
+          text="ENTRAR"
+          func={() => navigation.navigate("ProfileScreen")}
+        />
 
         <Text
           style={{
