@@ -115,13 +115,20 @@ const LoginScreen = ({ navigation }) => {
             marginLeft: 15,
           }}
         >
-          <View style={{}}>
+          <View
+            style={{
+              flex: 1,
+              // replica do dysplay inline
+              flexWrap: "wrap",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
             <FacebookButton />
+
+            <GoogleButton />
           </View>
-          <Text>{"\n"}</Text>
-          <Text>{"\n"}</Text>
-          <Text>{"\n"}</Text>
-          <GoogleButton />
         </View>
 
         <View style={style.vwEsqueceuSenha}>
