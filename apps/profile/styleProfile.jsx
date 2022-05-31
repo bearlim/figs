@@ -11,7 +11,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import SimpleIcon from "react-native-vector-icons/SimpleLineIcons";
 import Octicons from "react-native-vector-icons/Octicons";
-import { Dashboard } from "./dashboard";
+import { Dashboard } from "./components/dashboard";
 import styled from "styled-components";
 
 export const CircleProfile = () => {
