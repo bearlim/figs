@@ -1,6 +1,18 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, Image, Text } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Image,
+  Text,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import SimpleIcon from "react-native-vector-icons/SimpleLineIcons";
+import Octicons from "react-native-vector-icons/Octicons";
+import { Dashboard } from "./dashboard";
+import styled from "styled-components";
 
 export const CircleProfile = () => {
   return (
@@ -16,16 +28,14 @@ export const CircleProfile = () => {
 
 export const CircleProfilePicture = ({ uriPicture }) => {
   return (
-    <View style={style.ContainerPicture}>
-      <View style={{ flex: 0.3, justifyContent: "center" }}>
-        <Image
-          style={style.Picture}
-          source={{
-            uri: uriPicture,
-          }}
-        />
-      </View>
-    </View>
+    <ContainerPicture>
+      <Image
+        style={style.Picture}
+        source={{
+          uri: uriPicture,
+        }}
+      />
+    </ContainerPicture>
   );
 };
 
@@ -39,13 +49,36 @@ export const ProfileName = ({ nmUser }) => {
 
 export const EditProfile = ({ idProfile }) => {
   return (
-    <View style={[{ top: 30 }]}>
-      <View>
-        <Icon name="pencil" size={40} />
+    <TouchableOpacity onPress={OnPressEditProfile}>
+      <View style={style.Pencil}>
+        <View style={style.BorderPencil}>
+          <Icon name="pencil" color="#311D3F" size={45} />
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
+
+const OnPressEditProfile = ({ idProfile }) => {
+  Alert.alert(`${idProfile}`);
+};
+
+export const DashboardProfile = ({ figsCount, ConqCount }) => {
+  return <Dashboard figsCount={figsCount} ConqCount={ConqCount} />;
+};
+
+const ContainerPicture = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background: #e23e57;
+  padding: 7px;
+  border-radius: ${Math.round(
+    Dimensions.get("window").width + Dimensions.get("window").height
+  ) / 2}px;
+  max-width: ${Math.round(Dimensions.get("window").width) * 1.5}px;
+  max-height: ${Math.round(Dimensions.get("window").height) * 0.2}px;
+`;
 
 const style = StyleSheet.create({
   CircleProfile: {
@@ -59,21 +92,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     top: -470,
-  },
-
-  ContainerPicture: {
-    flex: 1,
-    justifyContent: "space-between",
-    backgroundColor: "#E23E57",
-    padding: 7,
-    borderRadius:
-      Math.round(
-        Dimensions.get("window").width + Dimensions.get("window").height
-      ) / 2,
-    maxHeight: Dimensions.get("window").height * 0.2,
-    maxWidth: Dimensions.get("window").width * 1.5,
-    justifyContent: "center",
-    alignItems: "center",
   },
 
   Picture: {
@@ -98,5 +116,55 @@ const style = StyleSheet.create({
     fontWeight: "500",
     fontSize: 23,
     top: -20,
+  },
+
+  Pencil: {
+    backgroundColor: "#000",
+    padding: 2,
+    borderRadius:
+      Math.round(
+        Dimensions.get("window").width + Dimensions.get("window").height
+      ) / 2,
+    top: 20,
+  },
+
+  BorderPencil: {
+    borderRadius:
+      Math.round(
+        Dimensions.get("window").width + Dimensions.get("window").height
+      ) / 2,
+    width: Dimensions.get("window").width * 0.15,
+    height: Dimensions.get("window").width * 0.15,
+    backgroundColor: "hsl(351, 80%, 56%)",
+    justifyContent: "center",
+    alignItems: "center",
+    opacity: 60,
+  },
+
+  ContainerDashBoard: {
+    flex: 1,
+    top: 180,
+    // replica do dysplay inline
+    flexWrap: "wrap",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+
+  BorderIconDashboard: {
+    backgroundColor: "hsl(340, 80%, 36.1%)",
+    borderRadius:
+      Math.round(
+        Dimensions.get("window").width + Dimensions.get("window").height
+      ) / 2,
+    height: 63,
+    width: 63,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  IconsDashboard: {
+    alignSelf: "center",
   },
 });
