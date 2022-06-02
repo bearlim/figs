@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { View, Text } from "react-native";
+import { Text, TouchableWithoutFeedback, Alert } from "react-native";
 import SimpleIcon from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
@@ -29,15 +29,17 @@ export const Dashboard = ({ figsCount, ConqCount }) => {
             </ContainerText>
           </IconContainer>
 
-          <IconContainer>
-            <IconBorder>
-              <AntDesign name="switcher" color="#ffffff" size={35} />
-            </IconBorder>
-            <ContainerText>
-              <Text style={{ marginTop: 1, fontSize: 18 }}>Trocar</Text>
-              <Text style={{ marginTop: 7 }}>Figurinhas</Text>
-            </ContainerText>
-          </IconContainer>
+          <TouchableWithoutFeedback onPress={() => Alert.alert("savel")}>
+            <IconContainer>
+              <IconBorder>
+                <AntDesign name="switcher" color="#ffffff" size={35} />
+              </IconBorder>
+              <ContainerText>
+                <Text style={{ marginTop: 1, fontSize: 18 }}>Trocar</Text>
+                <Text style={{ marginTop: 7 }}>Figurinhas</Text>
+              </ContainerText>
+            </IconContainer>
+          </TouchableWithoutFeedback>
         </Container>
       </DashboardContainerIcon>
     </>

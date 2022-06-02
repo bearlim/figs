@@ -3,17 +3,23 @@ import {
   Text,
   View,
   ScrollView,
-  Button,
-  StyleSheet,
   TextInput,
   Alert,
   TouchableOpacity,
 } from "react-native";
-import FlatButton from "../../components/button/button";
+import { FlatButton, SocialMediaButton } from "../../components/button/button";
 import FacebookButton from "../../components/button/facebook/button";
 import GoogleButton from "../../components/button/google/button";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
+import {
+  BrandTitleView,
+  FormLogin,
+  ContainerButtons,
+  ButtonsContainer,
+  ContainerForgotPassword,
+  style,
+} from "./components/style";
 
 const LoginScreen = ({ navigation }) => {
   const [dsEmail, dsEmailSet] = React.useState();
@@ -29,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <View style={style.brandTitleView}>
+      <BrandTitleView>
         <MaskedView
           maskElement={
             <Text
@@ -49,14 +55,14 @@ const LoginScreen = ({ navigation }) => {
             </Text>
           </LinearGradient>
         </MaskedView>
-      </View>
-      <View style={style.brandTitleView}>
+      </BrandTitleView>
+      <BrandTitleView>
         <Text style={style.optionChoice}>Escolha uma opção para entrar</Text>
-      </View>
+      </BrandTitleView>
       <View></View>
 
       {/* Form's inputs */}
-      <View style={style.formLogin}>
+      <FormLogin>
         <Text style={{ marginLeft: 10, color: "rgba(0, 0, 0, 0.397)" }}>
           Email
         </Text>
@@ -107,31 +113,13 @@ const LoginScreen = ({ navigation }) => {
         >
           Ou
         </Text>
-        <View
-          style={{
-            flexWrap: "wrap",
-            alignItems: "flex-start",
-            flexDirection: "row",
-            marginLeft: 15,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              // replica do dysplay inline
-              flexWrap: "wrap",
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-around",
-            }}
-          >
-            <FacebookButton />
-
-            <GoogleButton />
-          </View>
-        </View>
-
-        <View style={style.vwEsqueceuSenha}>
+        <ContainerButtons>
+          <ButtonsContainer>
+            <SocialMediaButton social_media="logo-facebook" color="white" />
+            <SocialMediaButton social_media="logo-google" color="black" />
+          </ButtonsContainer>
+        </ContainerButtons>
+        <ContainerForgotPassword>
           <TouchableOpacity onPress={eventoParaCadastrar}>
             <Text style={style.btEsqueceuSenha}>
               Não possui login?
@@ -143,66 +131,10 @@ const LoginScreen = ({ navigation }) => {
               </Text>
             </Text>
           </TouchableOpacity>
-        </View>
-      </View>
+        </ContainerForgotPassword>
+      </FormLogin>
     </ScrollView>
   );
 };
-
-const style = StyleSheet.create({
-  brandTitleView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 50,
-  },
-  brandTitle: {
-    fontSize: 48,
-    fontWeight: "700",
-  },
-  optionChoice: {
-    color: "rgba(0, 0, 0, 0.31)",
-    fontSize: 22,
-  },
-
-  formLogin: {
-    flex: 1,
-    marginLeft: 31,
-    marginRight: 31,
-    marginTop: 40,
-  },
-
-  inputBorder: {
-    borderWidth: 1,
-    borderColor: " rgba(0, 0, 0, 0.39)",
-    borderRadius: 14,
-    height: 40,
-    paddingLeft: 15,
-    marginTop: 10,
-  },
-
-  Login: {
-    width: 300,
-    height: 65,
-    alignSelf: "center",
-    marginTop: 55,
-    borderRadius: 18,
-  },
-
-  btLogin: {
-    height: 65,
-  },
-
-  vwEsqueceuSenha: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-
-  btEsqueceuSenha: {
-    color: "rgba(0, 0, 0, 0.31)",
-    fontSize: 20,
-  },
-});
 
 export default LoginScreen;
