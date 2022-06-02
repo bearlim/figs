@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StatusBar, StyleSheet, Dimensions } from "react-native";
+import { View, StatusBar } from "react-native";
 import { Container, SubContainer } from "../../style/global/styleGlobal";
 import {
   CircleProfile,

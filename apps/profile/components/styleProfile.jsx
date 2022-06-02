@@ -9,14 +9,14 @@ import {
   Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Dashboard } from "./components/dashboard";
+import { Dashboard } from "./dashboard";
 import {
   CircleProfileStyle,
   ContainerPicture,
   Pencil,
   BorderPencil,
   style,
-} from "./components/components";
+} from "./components";
 import styled from "styled-components";
 
 export const CircleProfile = () => {
