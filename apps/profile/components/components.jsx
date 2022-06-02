@@ -100,3 +100,31 @@ export const style = StyleSheet.create({
     alignSelf: "center",
   },
 });
+
+export const ContainerText = styled.View`
+  align-items: center;
+`;
+
+export const Container = styled.View`
+  flex: 0.42;
+  flex-direction: row;
+  min-height: 12px;
+`;
+
+export const DashboardContainerIcon = styled.View`
+  display: flex;
+  top: 170px;
+  min-width: 100px;
+`;
+
+export const IconBorder = styled.View`
+  padding: 12px;
+  background: hsl(340, 80%, 36.1%);
+  align-items: center;
+  border-radius: 50px;
+  margin: 0px 35px;
+`;
+
+export const IconContainer = styled.View`
+  align-items: center;
+`;

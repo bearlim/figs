@@ -1,8 +1,14 @@
-import styled from "styled-components";
 import React from "react";
 import { Text, TouchableWithoutFeedback, Alert } from "react-native";
 import SimpleIcon from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import {
+  ContainerText,
+  Container,
+  DashboardContainerIcon,
+  IconBorder,
+  IconContainer,
+} from "./components";
 
 export const Dashboard = ({ figsCount, ConqCount }) => {
   return (
@@ -45,31 +51,3 @@ export const Dashboard = ({ figsCount, ConqCount }) => {
     </>
   );
 };
-
-const ContainerText = styled.View`
-  align-items: center;
-`;
-
-const Container = styled.View`
-  flex: 0.42;
-  flex-direction: row;
-  min-height: 12px;
-`;
-
-const DashboardContainerIcon = styled.View`
-  display: flex;
-  top: 170px;
-  min-width: 100px;
-`;
-
-const IconBorder = styled.View`
-  padding: 12px;
-  background: hsl(340, 80%, 36.1%);
-  align-items: center;
-  border-radius: 50px;
-  margin: 0px 35px;
-`;
-
-const IconContainer = styled.View`
-  align-items: center;
-`;
