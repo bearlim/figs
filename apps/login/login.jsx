@@ -8,8 +8,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FlatButton, SocialMediaButton } from "../../components/button/button";
-import FacebookButton from "../../components/button/facebook/button";
-import GoogleButton from "../../components/button/google/button";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
 import {
