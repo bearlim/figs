@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StatusBar } from "react-native";
 import { Container, SubContainer } from "../../style/global/styleGlobal";
 import {
@@ -8,17 +8,20 @@ import {
   EditProfile,
   DashboardProfile,
 } from "./components/styleProfile";
+import AuthenticationContext from "../../src/contexts/authentication";
 
 function ProfileScreen() {
+  const { user } = useContext(AuthenticationContext);
+
   return (
     <Container>
       <StatusBar color="auto" />
       <CircleProfile />
       <Container>
-        <CircleProfilePicture uriPicture="https://avatars.githubusercontent.com/u/77466092?v=4" />
+        <CircleProfilePicture uriPicture={user.image_url} />
       </Container>
       <View>
-        <ProfileName nmUser="Yuri" />
+        <ProfileName nmUser={user.name} />
       </View>
       <EditProfile />
       <DashboardProfile figsCount={47} ConqCount={15} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Text,
   View,
@@ -18,17 +18,20 @@ import {
   ContainerForgotPassword,
   style,
 } from "./components/style";
+import AuthenticationContext from "../../src/contexts/authentication";
 
-const LoginScreen = ({ navigation }) => {
-  const [dsEmail, dsEmailSet] = React.useState();
-  const [dsSenha, dsSenhaSet] = React.useState();
+const LoginScreen = () => {
+  const [userEmail, userEmailSet] = React.useState();
+  const [userPass, userPassSet] = React.useState();
 
-  const onSubmiss = () => {
-    Alert.alert(dsEmail + " " + dsSenha);
-  };
+  const { signed, SignInRequest } = useContext(AuthenticationContext);
 
   const eventoParaCadastrar = () => {
     Alert.alert("Evento para cadastrar");
+  };
+
+  const onSubmissLogin = () => {
+    SignInRequest(userEmail, userPass);
   };
 
   return (
@@ -66,7 +69,7 @@ const LoginScreen = ({ navigation }) => {
         </Text>
         <TextInput
           style={style.inputBorder}
-          onChangeText={dsEmailSet}
+          onChangeText={userEmailSet}
           placeholder="Digite o seu e-mail"
         />
 
@@ -81,7 +84,7 @@ const LoginScreen = ({ navigation }) => {
         </Text>
         <TextInput
           style={style.inputBorder}
-          onChangeText={dsSenhaSet}
+          onChangeText={userPassSet}
           secureTextEntry={true}
           placeholder="Digite sua senha"
         />
@@ -96,10 +99,7 @@ const LoginScreen = ({ navigation }) => {
           {" "}
           ESQUECEU A SENHA?
         </Text>
-        <FlatButton
-          text="ENTRAR"
-          func={() => navigation.navigate("ProfileScreen")}
-        />
+        <FlatButton text="ENTRAR" func={onSubmissLogin} />
 
         <Text
           style={{
