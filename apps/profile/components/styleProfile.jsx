@@ -60,6 +60,6 @@ const OnPressEditProfile = ({ idProfile }) => {
   Alert.alert(`${idProfile}`);
 };
 
-export const DashboardProfile = ({ figsCount, ConqCount }) => {
-  return <Dashboard figsCount={figsCount} ConqCount={ConqCount} />;
+export const DashboardProfile = ({ figsCount, ConqCount, navigation }) => {
+  return <Dashboard figsCount={figsCount} ConqCount={ConqCount} navigation={navigation} />;
 };

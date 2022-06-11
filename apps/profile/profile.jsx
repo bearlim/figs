@@ -10,7 +10,7 @@ import {
 } from "./components/styleProfile";
 import AuthenticationContext from "../../src/contexts/authentication";
 
-function ProfileScreen() {
+function ProfileScreen({navigation}) {
   const { user } = useContext(AuthenticationContext);
 
   return (
@@ -24,7 +24,7 @@ function ProfileScreen() {
         <ProfileName nmUser={user.name} />
       </View>
       <EditProfile />
-      <DashboardProfile figsCount={47} ConqCount={15} />
+      <DashboardProfile figsCount={47} ConqCount={15} navigation={navigation}/>
     </Container>
   );
 }
