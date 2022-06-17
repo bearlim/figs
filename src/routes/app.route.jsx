@@ -2,8 +2,9 @@ import React from "react";
 import ProfileScreen from "../../apps/profile/profile";
 import AlbumScreen from "../../apps/albumscreen/album";
 import { createStackNavigator } from "@react-navigation/stack";
-import ProfileScreen from "../../apps/profile/profile";
 import ScannerQr from "../../apps/qrCode/Scanner";
+import NavBar from "../../apps/navbar/navbar";
+import LoginScreen from "../../apps/login/login";
 
 const AppStack = createStackNavigator();
 
