@@ -7,9 +7,6 @@ import {
   Alert,
   TouchableOpacity,
 } from "react-native";
-import { FlatButton, SocialMediaButton } from "../../components/button/button";
-import { LinearGradient } from "expo-linear-gradient";
-import MaskedView from "@react-native-masked-view/masked-view";
 import {
   BrandTitleView,
   FormLogin,
@@ -18,6 +15,11 @@ import {
   ContainerForgotPassword,
   style,
 } from "./components/style";
+
+import { FlatButton, SocialMediaButton } from "../../components/button/button";
+import { LinearGradient } from "expo-linear-gradient";
+import MaskedView from "@react-native-masked-view/masked-view";
+
 import AuthenticationContext from "../../src/contexts/authentication";
 import {
   PrimaryColor,
