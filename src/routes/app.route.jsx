@@ -10,14 +10,16 @@ const AppStack = createStackNavigator();
 
 const AppRoutes = () => {
   return (
-    <AppStack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName="AlbumScreen"
-    >
-      <AppStack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <AppStack.Screen name="AlbumScreen" component={AlbumScreen} />
-      <AppStack.Screen name="QrCode" component={ScannerQr} />
-    </AppStack.Navigator>
+    // <AppStack.Navigator
+    //   screenOptions={{ headerShown: false }}
+    //   initialRouteName="AlbumScreen"
+    // >
+    //   <AppStack.Screen name="ProfileScreen" component={ProfileScreen} />
+    //   <AppStack.Screen name="AlbumScreen" component={AlbumScreen} />
+    //   <AppStack.Screen name="QrCode" component={ScannerQr} />
+    //   <NavBar />
+    // </AppStack.Navigator>
+    <NavBar />
   );
 };
 
