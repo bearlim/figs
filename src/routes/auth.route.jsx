@@ -8,8 +8,6 @@ const AuthStack = createStackNavigator();
 const AuthRoutes = () => {
   return (
     <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-      {/* Ocultar nome da screen: headerShown: false */}
-      {/* <StatusBar color="auto" /> */}
       <AuthStack.Screen name="LoginScreen" component={LoginScreen} />
     </AuthStack.Navigator>
   );

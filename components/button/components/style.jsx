@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PrimaryColor } from "../../../style/global/styleGlobal";
 
 export const ContainerButton = styled.View`
   flex: 1;
@@ -14,7 +15,7 @@ export const SubmissContainer = styled.View`
   align-self: center;
   margin-top: 25px;
   border-radius: 17px;
-  background: hsl(340, 80%, 36.1%);
+  background: ${PrimaryColor};
   width: 305px;
   height: 65px;
   justify-content: center;
