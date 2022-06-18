@@ -10,13 +10,11 @@ export const AuthTunnel = ({ children }) => {
 
   useEffect(() => {
     async function loadStorage() {
-      const response = await AsyncStorage.multiGet([
-        "@RNAuth:user",
-        "@RNAuth:token",
-      ]);
-
-      const dataUser = response[0][1];
-      const dataToken = response[1][1];
+      const response = serializeResponse(
+        await AsyncStorage.multiGet(["@RNAuth:user", "@RNAuth:token"])
+      );
+      const dataUser = response["@RNAuth:user"];
+      const dataToken = response["@RNAuth:token"];
 
       if (dataUser && dataToken) {
         setUser(JSON.parse(dataUser));
@@ -49,5 +47,9 @@ export const AuthTunnel = ({ children }) => {
     </AuthenticationContext.Provider>
   );
 };
+
+function serializeResponse(response) {
+  return Object.fromEntries(response);
+}
 
 export default AuthenticationContext;

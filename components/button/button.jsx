@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, StyleSheet, Text, Image } from "react-native";
 import { ContainerButton, SubmissContainer } from "./components/style";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -31,11 +31,9 @@ export const SocialMediaButton = ({ social_media, color, func }) => {
     return (
       <TouchableOpacity onPress={func}>
         <ContainerButton>
-          <Icon
-            name={social_media}
-            size={28}
-            color={color}
-            backgroundColor="transparent"
+          <Image
+            style={{ width: 32, height: 32 }}
+            source={require("../../src/assets/icons/google.png")}
           />
         </ContainerButton>
       </TouchableOpacity>

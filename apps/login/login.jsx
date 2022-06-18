@@ -7,9 +7,6 @@ import {
   Alert,
   TouchableOpacity,
 } from "react-native";
-import { FlatButton, SocialMediaButton } from "../../components/button/button";
-import { LinearGradient } from "expo-linear-gradient";
-import MaskedView from "@react-native-masked-view/masked-view";
 import {
   BrandTitleView,
   FormLogin,
@@ -18,7 +15,17 @@ import {
   ContainerForgotPassword,
   style,
 } from "./components/style";
+
+import { FlatButton, SocialMediaButton } from "../../components/button/button";
+import { LinearGradient } from "expo-linear-gradient";
+import MaskedView from "@react-native-masked-view/masked-view";
+
 import AuthenticationContext from "../../src/contexts/authentication";
+import {
+  PrimaryColor,
+  SecundaryColor,
+  GradiantColor,
+} from "../../style/global/styleGlobal";
 
 const LoginScreen = () => {
   const [userEmail, userEmailSet] = React.useState();
@@ -42,18 +49,16 @@ const LoginScreen = () => {
             <Text
               style={[style.brandTitle, { backgroundColor: "transparent" }]}
             >
-              globofigs.com
+              figs.com
             </Text>
           }
         >
           <LinearGradient
-            colors={["hsl(340, 80%, 36.1%)", "#311D3F"]}
+            colors={[PrimaryColor, GradiantColor]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
           >
-            <Text style={[style.brandTitle, { opacity: 0 }]}>
-              globofigs.com
-            </Text>
+            <Text style={[style.brandTitle, { opacity: 0 }]}>figs.com</Text>
           </LinearGradient>
         </MaskedView>
       </BrandTitleView>
@@ -93,7 +98,7 @@ const LoginScreen = () => {
           style={{
             alignSelf: "center",
             marginTop: 35,
-            color: "hsl(340, 60%, 36.1%)",
+            color: `${SecundaryColor}`,
           }}
         >
           {" "}
@@ -121,9 +126,7 @@ const LoginScreen = () => {
           <TouchableOpacity onPress={eventoParaCadastrar}>
             <Text style={style.btEsqueceuSenha}>
               Não possui login?
-              <Text
-                style={{ color: "hsl(340, 80%, 36.1%)", fontWeight: "700" }}
-              >
+              <Text style={{ color: `${PrimaryColor}`, fontWeight: "700" }}>
                 {" "}
                 CADASTRE-SE
               </Text>

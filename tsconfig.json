@@ -1,7 +1,5 @@
 {
-<<<<<<< HEAD
-  "compilerOptions": {},
-=======
+
   "compilerOptions": {
     "jsx": "react",
     "target": "es2016",
@@ -11,6 +9,5 @@
     "strict": true,
     "skipLibCheck": true
   },
->>>>>>> main
   "extends": "expo/tsconfig.base"
 }

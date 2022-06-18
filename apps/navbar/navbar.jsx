@@ -1,36 +1,62 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import * as React from "react";
+// import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Octicons from "react-native-vector-icons/Octicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import HomeScreen from "../home/home";
-import ProfileScreen from "../profile/profile";
+// Screens
+import Home from "../home/home";
+import Profile from "../profile/profile";
+import QrCode from "../qrCode/Scanner";
+import AlbumScreen from "../albumscreen/album";
+
+//Screen names
+// const homeName = "home";
+// const detailsName = "Details";
+// const settingsName = "Settings";
 
 const Tab = createBottomTabNavigator();
 
-export default function NavBar() {
-  <NavigationContainer>
+function NavBar() {
+  return (
     <Tab.Navigator
-      initialRouteName="Home"
+      // initialRouteName={homeName}
       screenOptions={({ route }) => ({
+        headerShown: false,
+        title: "*",
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           let rn = route.name;
 
-          if (rn === "Home") {
-            iconName = "home";
-            return <Octicons name={iconName} size={size} color={color} />;
-          } else if (rn === "Profile") {
-            iconName = "person-outline";
-            return <Ionicons name={iconName} size={size} color={color} />;
+          if (rn === "profile") {
+            iconName = focused ? "person-outline" : "person-outline";
+          } else if (rn === "AlbumScreen") {
+            iconName = focused ? "book-outline" : "book-outline";
+          } else if (rn === "qrCode") {
+            iconName = focused ? "qr-code-outline" : "qr-code-outline";
           }
+
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
+      tabBarOptions={{
+        tabStyle: {
+          backgroundColor: "#EBE4F0",
+          // height: 75
+        },
+
+        activeTintColor: "#60160D",
+        inactiveTintColor: "#D85502",
+        // labelStyle: { paddingBottom: 10, fontSize: 10 },
+        // style: { backgroundColor: 'black' },
+        // padding: 10, height: 70,
+      }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen component={HomeScreen} />
+      <Tab.Screen name="qrCode" component={QrCode} />
+      <Tab.Screen name="AlbumScreen" component={AlbumScreen} />
+      <Tab.Screen name="profile" component={Profile} />
     </Tab.Navigator>
-  </NavigationContainer>;
+  );
 }
+
+export default NavBar;
