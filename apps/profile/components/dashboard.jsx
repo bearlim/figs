@@ -10,7 +10,7 @@ import {
   IconContainer,
 } from "./components";
 
-export const Dashboard = ({ figsCount, ConqCount }) => {
+export const Dashboard = ({ figsCount, ConqCount, navigation }) => {
   return (
     <>
       <DashboardContainerIcon>
@@ -21,7 +21,7 @@ export const Dashboard = ({ figsCount, ConqCount }) => {
             </IconBorder>
             <ContainerText>
               <Text style={{ marginTop: 1, fontSize: 22 }}>{figsCount}</Text>
-              <Text>Figurinhas</Text>
+              <Text >Figurinhas</Text>
             </ContainerText>
           </IconContainer>
 
@@ -35,7 +35,7 @@ export const Dashboard = ({ figsCount, ConqCount }) => {
             </ContainerText>
           </IconContainer>
 
-          <TouchableWithoutFeedback onPress={() => Alert.alert("savel")}>
+          <TouchableWithoutFeedback onPress={()=> navigation.navigate('FigurinhaScreen')}>
             <IconContainer>
               <IconBorder>
                 <AntDesign name="switcher" color="#ffffff" size={35} />

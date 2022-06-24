@@ -33,7 +33,7 @@ function ProfileScreen({ navigation }) {
         <ProfileName nmUser={user.name} />
       </View>
       <EditProfile />
-      <DashboardProfile figsCount={47} ConqCount={15} />
+      <DashboardProfile figsCount={47} ConqCount={15} navigation={navigation} />
     </Container>
   );
 }
