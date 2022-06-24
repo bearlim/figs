@@ -27,7 +27,7 @@ import {
   GradiantColor,
 } from "../../style/global/styleGlobal";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [userEmail, userEmailSet] = React.useState();
   const [userPass, userPassSet] = React.useState();
 
@@ -123,7 +123,9 @@ const LoginScreen = () => {
           </ButtonsContainer>
         </ContainerButtons>
         <ContainerForgotPassword>
-          <TouchableOpacity onPress={eventoParaCadastrar}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("RegistrationScreen")}
+          >
             <Text style={style.btEsqueceuSenha}>
               Não possui login?
               <Text style={{ color: `${PrimaryColor}`, fontWeight: "700" }}>

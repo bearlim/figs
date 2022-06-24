@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableWithoutFeedback, Alert } from "react-native";
+import { Text, TouchableWithoutFeedback, Alert, Image } from "react-native";
 import SimpleIcon from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import {

@@ -1,0 +1,20 @@
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import ConfigScreen from "../../apps/configScreen/config";
+import ProfileScreen from "../../apps/profile/profile";
+
+const ProfileStack = createStackNavigator();
+
+const ProfileRoutes = () => {
+  return (
+    <ProfileStack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="ProfileScreen"
+    >
+      <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <ProfileStack.Screen name="ConfigScreen" component={ConfigScreen} />
+    </ProfileStack.Navigator>
+  );
+};
+
+export default ProfileRoutes;

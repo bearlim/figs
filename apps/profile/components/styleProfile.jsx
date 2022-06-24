@@ -63,3 +63,14 @@ const OnPressEditProfile = ({ idProfile }) => {
 export const DashboardProfile = ({ figsCount, ConqCount, navigation }) => {
   return <Dashboard figsCount={figsCount} ConqCount={ConqCount} navigation={navigation} />;
 };
+
+export const Touchable = styled.TouchableOpacity`
+  position: absolute;
+  align-self: flex-end;
+  margin-top: 15px;
+`;
+
+export const ConfigIcon = styled.Image`
+  width: 33px;
+  height: 33px;
+`;

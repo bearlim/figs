@@ -78,3 +78,5 @@ export const Touchable = styled.TouchableOpacity`
   position: absolute;
   align-self: flex-end;
 `;
+
+export const TouchableFigs = styled.TouchableOpacity``;
