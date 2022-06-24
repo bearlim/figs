@@ -11,6 +11,7 @@ import {
   ContainerTitleScreen,
   FilterIcon,
   Touchable,
+  TouchableFigs,
 } from "./components/albumStyle";
 
 const objImages = [
@@ -32,7 +33,7 @@ const objImages = [
   },
 ];
 
-export default function AlbumScreen() {
+export default function AlbumScreen({ navigation }) {
   return (
     <StyledScrollView>
       <BackgroundCircle />
@@ -44,11 +45,16 @@ export default function AlbumScreen() {
       </ContainerTitleScreen>
       <AlbumContainer>
         {objImages.map((obj) => (
-          <ImagesContainer key={obj.id}>
-            <StyledImagesLarge source={{ uri: obj.figs.uri }} />
-            <StyledText>{obj.figs.name}</StyledText>
-            <StyledSmallText>{obj.figs.rarity}</StyledSmallText>
-          </ImagesContainer>
+          <TouchableFigs
+            key={obj.id}
+            onPress={() => navigation.navigate("FigBios")}
+          >
+            <ImagesContainer>
+              <StyledImagesLarge source={{ uri: obj.figs.uri }} />
+              <StyledText>{obj.figs.name}</StyledText>
+              <StyledSmallText>{obj.figs.rarity}</StyledSmallText>
+            </ImagesContainer>
+          </TouchableFigs>
         ))}
       </AlbumContainer>
     </StyledScrollView>
