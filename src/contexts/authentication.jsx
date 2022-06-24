@@ -13,6 +13,7 @@ export const AuthTunnel = ({ children }) => {
       const response = serializeResponse(
         await AsyncStorage.multiGet(["@RNAuth:user", "@RNAuth:token"])
       );
+      // await AsyncStorage.multiRemove(["@RNAuth:user", "@RNAuth:token"]);
       const dataUser = response["@RNAuth:user"];
       const dataToken = response["@RNAuth:token"];
 
@@ -36,12 +37,16 @@ export const AuthTunnel = ({ children }) => {
     await AsyncStorage.setItem("@RNAuth:token", response.token);
   }
 
+  async function SignOutRequest() {
+    await AsyncStorage.clear();
+    setUser(false);
+  }
   {
     /*Falando para todos os contextos que tem acesso ao contexto de Autenticação*/
   }
   return (
     <AuthenticationContext.Provider
-      value={{ signed: !!user, user, loading, SignInRequest }}
+      value={{ signed: !!user, user, loading, SignInRequest, SignOutRequest }}
     >
       {children}
     </AuthenticationContext.Provider>

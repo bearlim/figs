@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { MaterialDialog } from "react-native-material-dialog";
+import React, { useState } from "react";
+import { Button, Text } from "@react-native-material/core";
 
 export const Container = styled.View`
   display: flex;
@@ -13,3 +16,31 @@ export const SecundaryColor = "hsl(10, 84%, 39%)";
 export const TerciaryColor = "hsl(23, 98%, 43%)";
 export const QuartenaryColor = "hsl(47, 93%, 48%)";
 export const GradiantColor = "#4d2b04";
+
+export const DialogBox = ({ func, event, title, text }) => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <>
+      <Button
+        title={event}
+        color="#EBE4F0"
+        style={{ width: 350 }}
+        tintColor="red"
+        onPress={() => {
+          setVisible(true);
+        }}
+      />
+      <MaterialDialog
+        title={title}
+        visible={visible}
+        onOk={() => {
+          func();
+        }}
+        onCancel={() => setVisible(false)}
+      >
+        <Text>{text}</Text>
+      </MaterialDialog>
+    </>
+  );
+};

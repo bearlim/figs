@@ -7,16 +7,25 @@ import {
   ProfileName,
   EditProfile,
   DashboardProfile,
+  Touchable,
+  ConfigIcon,
 } from "./components/styleProfile";
 import AuthenticationContext from "../../src/contexts/authentication";
 
-function ProfileScreen() {
+function ProfileScreen({ navigation }) {
   const { user } = useContext(AuthenticationContext);
 
   return (
     <Container>
       <StatusBar color="auto" />
       <CircleProfile />
+      <Touchable
+        onPress={() => {
+          navigation.navigate("ConfigScreen");
+        }}
+      >
+        <ConfigIcon source={require("../../src/assets/icons/config.png")} />
+      </Touchable>
       <Container>
         <CircleProfilePicture uriPicture={user.image_url} />
       </Container>

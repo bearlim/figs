@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import { Dimensions, StyleSheet } from "react-native";
+import {
+  PrimaryColor,
+  SecundaryColor,
+  TerciaryColor,
+} from "../../../style/global/styleGlobal";
 
 export const CircleProfileStyle = styled.View`
   border-radius: ${Math.round(
@@ -7,7 +12,7 @@ export const CircleProfileStyle = styled.View`
   ) / 2}px;
   width: ${Dimensions.get("window").width * 2}px;
   height: ${Dimensions.get("window").width * 2}px;
-  background: hsl(340, 80%, 36.1%);
+  background: ${PrimaryColor};
   justify-content: center;
   align-items: center;
   top: -470px;
@@ -18,7 +23,7 @@ export const ContainerPicture = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background: #e23e57;
+  background: ${SecundaryColor};
   padding: 7px;
   border-radius: ${Math.round(
     Dimensions.get("window").width + Dimensions.get("window").height
@@ -42,7 +47,7 @@ export const BorderPencil = styled.View`
   ) / 2}px;
   width: ${Dimensions.get("window").width * 0.15}px;
   height: ${Dimensions.get("window").width * 0.15}px;
-  background: hsl(351, 80%, 56%);
+  background: ${TerciaryColor};
   justify-content: center;
   align-items: center;
   opacity: 60;
@@ -84,7 +89,7 @@ export const style = StyleSheet.create({
   },
 
   BorderIconDashboard: {
-    backgroundColor: "hsl(340, 80%, 36.1%)",
+    backgroundColor: `${TerciaryColor}`,
     borderRadius:
       Math.round(
         Dimensions.get("window").width + Dimensions.get("window").height
@@ -119,7 +124,7 @@ export const DashboardContainerIcon = styled.View`
 
 export const IconBorder = styled.View`
   padding: 12px;
-  background: hsl(340, 80%, 36.1%);
+  background: ${TerciaryColor};
   align-items: center;
   border-radius: 50px;
   margin: 0px 35px;
