@@ -44,9 +44,11 @@ export const ProfileName = ({ nmUser }) => {
   );
 };
 
-export const EditProfile = ({ idProfile }) => {
+export const EditProfile = ({ navigation, idProfile }) => {
   return (
-    <TouchableOpacity onPress={OnPressEditProfile}>
+    <TouchableOpacity onPress={() => {
+      navigation.navigate("EditProfile")
+    }}>
       <Pencil style={style.Pencil}>
         <BorderPencil style={style.BorderPencil}>
           <Icon name="pencil" color="#311D3F" size={45} />
