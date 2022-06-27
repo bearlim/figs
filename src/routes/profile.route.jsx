@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import ConfigScreen from "../../apps/configScreen/config";
 import ProfileScreen from "../../apps/profile/profile";
+// import ConfigScreen from "../../apps/config/config"; // Tatiana
 
 const ProfileStack = createStackNavigator();
 
