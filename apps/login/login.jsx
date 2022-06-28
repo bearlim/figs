@@ -31,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
   const [userEmail, userEmailSet] = React.useState();
   const [userPass, userPassSet] = React.useState();
 
-  const { signed, SignInRequest } = useContext(AuthenticationContext);
+  // const { signed, SignInRequest } = useContext(AuthenticationContext);
 
   const eventoParaCadastrar = () => {
     Alert.alert("Evento para cadastrar");

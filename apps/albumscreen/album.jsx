@@ -11,8 +11,10 @@ import {
   ContainerTitleScreen,
   FilterIcon,
   Touchable,
-  TouchableFigs,
+  TouchableFigs
 } from "./components/albumStyle";
+
+import Filter from './filter/filter'
 
 const objImages = [
   {
@@ -21,6 +23,7 @@ const objImages = [
       uri: "https://avatars.githubusercontent.com/u/77466092?v=4",
       name: "Fig1",
       rarity: "Lendário",
+      state: "ativo"
     },
   },
   {
@@ -29,6 +32,7 @@ const objImages = [
       uri: "https://avatars.githubusercontent.com/u/77466092?v=4",
       name: "Fig2",
       rarity: "Épica",
+      state: "em lançamento"
     },
   },
 ];
@@ -38,22 +42,21 @@ export default function AlbumScreen({ navigation }) {
     <StyledScrollView>
       <BackgroundCircle />
       <ContainerTitleScreen>
-        <TitleScreen>Meu album</TitleScreen>
-        <Touchable>
-          <FilterIcon source={require("../../src/assets/icons/filter.png")} />
-        </Touchable>
+        <TitleScreen>Meus Álbuns</TitleScreen>
+
       </ContainerTitleScreen>
+      <Filter/>
       <AlbumContainer>
         {objImages.map((obj) => (
           <TouchableFigs
             key={obj.id}
             onPress={() => navigation.navigate("FigBios")}
           >
-            <ImagesContainer>
-              <StyledImagesLarge source={{ uri: obj.figs.uri }} />
-              <StyledText>{obj.figs.name}</StyledText>
-              <StyledSmallText>{obj.figs.rarity}</StyledSmallText>
-            </ImagesContainer>
+          <ImagesContainer >
+            <StyledImagesLarge source={{ uri: obj.figs.uri }} />
+            <StyledText>{obj.figs.name}</StyledText>
+            <StyledSmallText>{obj.figs.rarity}</StyledSmallText>
+          </ImagesContainer>
           </TouchableFigs>
         ))}
       </AlbumContainer>

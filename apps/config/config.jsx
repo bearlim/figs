@@ -8,6 +8,7 @@ import {
 } from "../profile/components/styleProfile";
 import AuthenticationContext from "../../src/contexts/authentication";
 import { Container } from "../../style/global/styleGlobal";
+import { ScrollView } from "react-native-gesture-handler";
 
 const dataPreferencias = [
   {
@@ -18,13 +19,13 @@ const dataPreferencias = [
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
     title: 'Opção 2',
-    iconName: 'flag',
+    iconName: 'eye',
 
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 'Opção 3',
-    iconName: 'settings',
+    iconName: 'question',
 
   },
 ];
@@ -33,16 +34,27 @@ const dataConteudos = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad42423bb28ba',
     title: 'Opção 11',
-    iconName: 'folder',
+    iconName: 'picture',
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad42423badasdasfa',
+    title: 'Opção 11',
+    iconName: 'user',
+  },{
+    id: 'bd7acbea-c1b1-46c2-aed5-3adsadasda23bb28ba',
+    title: 'Opção 11',
+    iconName: 'lock',
   },
 ];
 
 const Item = ({ title, iconName }) => (
+
   <View style={styles.item}>
-    <SimpleIcon name={iconName} color="#ffffff" size={22} />
+
+    <SimpleIcon name={iconName} style={styles.iconOptions} size={22} />
 
     <Text style={styles.title}>{title}</Text>
-    <SimpleIcon name="arrow-right-circle" color="#ffffff" size={32} />
+    <SimpleIcon name="arrow-right" style={styles.iconNext} size={15} />
 
   </View>
 );
@@ -53,37 +65,50 @@ const BoxConfig = ({ name, data }) => {
     <Item title={item.title} iconName={item.iconName} />
   );
 
-  return <View style={styles.box}>
-    <Text style={styles.section}> {name}</Text>
+  return (
+      <View style={styles.box}>
 
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
-  </View>
+        <Text style={styles.section}> {name} </Text>
+
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+
+      </View>
+  )
 }
-function ConfigScreen({ }) {
+function ConfigScreenT({ }) {
+
   const { user } = useContext(AuthenticationContext);
 
   return (
-    <View>
+    <ScrollView>
       <Container>
         <StatusBar color="auto" />
-        <CircleProfile />
-        <Container>
-          <CircleProfilePicture uriPicture={user.image_url} />
-        </Container>
+        {/* <CircleProfile /> */}
+
         <View>
-          <ProfileName nmUser={user.name} />
+          <CircleProfilePicture uriPicture={"user.image_url"} />
+        </View>
+
+        <View style={{alignItems: 'center'}}>
+          {/* <ProfileName nmUser={"user.name"} /> */}
+          <Text style={styles.userNametitle}>@Barleam</Text>
+          <Text style={styles.userEmailtitle}>Yuri@gmail.com</Text>
+        </View>
+
+        <View style={styles.editProfileButton}>
+          <Text style={styles.titleEditProfile}>Editar Perfil</Text>
+          <SimpleIcon name="arrow-right" style={styles.iconNextEdit} size={15} />
         </View>
 
       </Container>
-      <Container></Container>
 
-      <BoxConfig name={"Conteúdos"} data={dataConteudos}></BoxConfig>
-      <BoxConfig name={"Preferências"} data={dataPreferencias}></BoxConfig>
-    </View>
+      <BoxConfig name={"CONTEÚDOS"} data={dataConteudos}></BoxConfig>
+      <BoxConfig name={"PREFERÊNCIAS"} data={dataPreferencias}></BoxConfig>
+    </ScrollView>
   );
 }
 
@@ -95,28 +120,79 @@ const styles = StyleSheet.create({
     //marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    //backgroundColor: '#f9c2ff',
-    padding: 20,
-    paddingRight: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    flexDirection: 'row'
+    padding: 10,
+    flexDirection: 'row',
+    paddingLeft: 37,
+    marginTop: 7,
+    
   },
+
   box: { 
-    borderWidth: 1, 
-    borderColor: greyColor, 
     paddingRight:10, 
-    paddingLeft: 10 
+    paddingLeft: 10,
   },
+
   title: {
-    fontSize: 22,
+    fontSize: 20,
+    paddingLeft: 10,
+    width: 100
   },
 
   section: {
-    fontSize: 32,
-    textAlign: "center", backgroundColor: greyColor,
+    fontSize: 25,
+    backgroundColor: "rgba(109, 109, 109, 0.38)",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    paddingLeft: 30,
+    paddingVertical: 9,
+    alignItems: 'center'
+  },
+
+  iconNext:{
+    backgroundColor: 'rgba(185, 45, 16, 0.63)',
+    borderRadius: 100,
+    padding: 5,
+  },
+
+  iconOptions:{
+    color: 'rgba(5, 0, 56, 0.5)',
+  },
+
+  editProfileButton:{
+    backgroundColor: "rgba(185, 45, 16, 1)",
+    flexDirection: 'row',
+    padding: 8,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+    marginTop: 15
+
+  },
+
+  titleEditProfile:{
+    color: 'white',
+    fontSize: 20,
+    paddingHorizontal: 10,
+  },
+
+  iconNextEdit:{
+    backgroundColor: "rgba(255, 255, 255, 0.21)",
+    borderRadius: 20,
+    padding: 5,
+    shadowOffset: {width: 4, height: 10},
+    shadowColor: "rgba(255, 255, 255, 0.21)",
+
+  },
+
+  userNametitle:{
+    fontSize: 40
+  },
+  userEmailtitle:{
+    fontSize: 16,
+    marginTop: 10
   }
 
 });
 
-export default ConfigScreen;
+export default ConfigScreenT;
