@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { TextInput } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { TerciaryColor } from "../../style/global/styleGlobal";
+import { StyledInput } from "../../style/global/styleGlobal";
+import { Container } from "./components/components";
 
 export default function EditProfile({ route, navigation }) {
   const user = route.params;
@@ -10,7 +11,7 @@ export default function EditProfile({ route, navigation }) {
   const [nome, setNome] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [senha, setSenha] = useState("");
-  const [userName, setProfile] = useState("");
+  const [userName, setUserName] = useState("");
   const [dtNascimento, setNascimento] = useState("");
 
   const voltarPag = () => {};
@@ -20,44 +21,19 @@ export default function EditProfile({ route, navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.btnVoltar}
-        onPress={() => voltarPag()}
-      ></TouchableOpacity>
-      <Text style={styles.btnVoltar}></Text>
-
+    <Container>
       <Image style={styles.imagem} source={{ uri: user.image_url }} />
 
       <Text style={styles.appText}>Nome</Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(text) => setNome(text)}
-        value={user.name}
-      />
+      <StyledInput func={setNome} value={user.name} />
       <Text style={styles.appText}>Usuário</Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(text) => setProfile(text)}
-      />
+      <StyledInput value={user.userName} func={setUserName} />
       <Text style={styles.appText}>E-mail</Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(text) => setEmail(text)}
-        value={user.email}
-      />
+      <StyledInput func={setEmail} value={user.email} />
       <Text style={styles.appText}>Senha</Text>
-      <TextInput
-        secureTextEntry={true}
-        style={styles.textInput}
-        onChangeText={(text) => setSenha(text)}
-      />
+      <StyledInput pass={true} func={setSenha} />
       <Text style={styles.appText}>Data de Nascimento</Text>
-      <TextInput
-        secureTextEntry={true}
-        style={styles.textInput}
-        onChangeText={(text) => setNascimento(text)}
-      />
+      <StyledInput value={user.dtNascimento} func={setNascimento} />
 
       <TouchableOpacity
         style={styles.btnAtualizar}
@@ -67,46 +43,31 @@ export default function EditProfile({ route, navigation }) {
           Atualizar Informações
         </Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFF",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  textInput: {
-    width: "100%",
-    height: 40,
-    backgroundColor: "white",
-    borderRadius: 20,
-    paddingLeft: 15,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: "rgba(158,150,150,.5)",
-  },
   btnAtualizar: {
     width: "100%",
     height: 40,
     backgroundColor: TerciaryColor,
     borderRadius: 20,
     justifyContent: "center",
+    top: 30,
   },
   imagem: {
     width: 161,
     height: 161,
     borderRadius: (161 + 161) / 2,
     overflow: "hidden",
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: "#BD1C07",
     bottom: 40,
   },
   appText: {
     fontWeight: "bold",
     alignSelf: "flex-start",
+    marginLeft: 15,
   },
 });
