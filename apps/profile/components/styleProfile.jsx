@@ -20,7 +20,7 @@ import {
 import styled from "styled-components";
 
 export const CircleProfile = () => {
-  return <CircleProfileStyle></CircleProfileStyle>;
+  return <CircleProfileStyle />;
 };
 
 export const CircleProfilePicture = ({ uriPicture }) => {
@@ -44,11 +44,13 @@ export const ProfileName = ({ nmUser }) => {
   );
 };
 
-export const EditProfile = ({ navigation, idProfile }) => {
+export const EditProfile = ({ navigation, objUser }) => {
   return (
-    <TouchableOpacity onPress={() => {
-      navigation.navigate("EditProfile")
-    }}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("EditProfile", objUser);
+      }}
+    >
       <Pencil style={style.Pencil}>
         <BorderPencil style={style.BorderPencil}>
           <Icon name="pencil" color="#311D3F" size={45} />
@@ -63,7 +65,13 @@ const OnPressEditProfile = ({ idProfile }) => {
 };
 
 export const DashboardProfile = ({ figsCount, ConqCount, navigation }) => {
-  return <Dashboard figsCount={figsCount} ConqCount={ConqCount} navigation={navigation} />;
+  return (
+    <Dashboard
+      figsCount={figsCount}
+      ConqCount={ConqCount}
+      navigation={navigation}
+    />
+  );
 };
 
 export const Touchable = styled.TouchableOpacity`

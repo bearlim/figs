@@ -25,11 +25,9 @@ export const ContainerPicture = styled.View`
   align-items: center;
   background: ${SecundaryColor};
   padding: 7px;
-  border-radius: ${Math.round(
-    Dimensions.get("window").width + Dimensions.get("window").height
-  ) / 2}px;
-  max-width: ${Math.round(Dimensions.get("window").width) * 1.5}px;
-  max-height: ${Math.round(Dimensions.get("window").height) * 0.2}px;
+  border-radius: ${320 / 2}px;
+  max-width: 160px;
+  max-height: 160px;
 `;
 
 export const Pencil = styled.View`
@@ -58,10 +56,7 @@ export const style = StyleSheet.create({
     height: 150,
     width: 150,
     alignSelf: "center",
-    borderRadius:
-      Math.round(
-        Dimensions.get("window").width + Dimensions.get("window").height
-      ) / 2,
+    borderRadius: 300 / 2,
   },
 
   CircleShadow: {
