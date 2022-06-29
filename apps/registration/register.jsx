@@ -1,93 +1,65 @@
-import React, { useState, useContext } from "react"
-import { View, Text, TextInput, Pressable, StatusBar } from "react-native"
-import AuthenticationContext from "../../src/contexts/authentication"
-import { Container } from "../profile/components/components"
-import { CircleProfilePicture, ProfileName } from "../profile/components/styleProfile"
-import { styles } from "./components/registerStyle"
+import React, { useState, useContext } from "react";
+import { View, Text, TextInput, Pressable, StatusBar } from "react-native";
+import AuthenticationContext from "../../src/contexts/authentication";
+import {
+  CircleProfilePicture,
+  ProfileName,
+} from "../profile/components/styleProfile";
+import { styles } from "./components/registerStyle";
+import {
+  Container,
+  InputContainer,
+  ContainerTitle,
+} from "./components/registerStyle";
+import { StyledInput } from "../../style/global/styleGlobal";
+import { FlatButton } from "../../components/button/button";
+import { TitleApp } from "../../style/global/styleGlobal";
 
-export function RegisterScreen(){
+export function RegisterScreen() {
+  const [nickname, setNickname] = useState("");
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confSenha, setConfSenha] = useState("");
 
-    const [nickname, setNickname] = useState('')
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [confSenha, setConfSenha] = useState('')
+  // const {user} = useContext(AuthenticationContext);
 
-    // const {user} = useContext(AuthenticationContext);
+  function salvarCadastro() {
+    console.log("Apertei");
+  }
 
-    function salvarCadastro(){
-        console.log('Apertei')
-    }
+  return (
+    <>
+      <ContainerTitle>
+        <TitleApp />
+      </ContainerTitle>
+      <Container>
+        <InputContainer>
+          <StyledInput
+            label={"Nome"}
+            placeholder={"Digite seu nome"}
+            func={setNome}
+          />
+          <StyledInput
+            label="Apelido (Opcional)"
+            placeholder="Digite o seu apelido"
+            func={setNickname}
+          />
+          <StyledInput
+            label="E-mail"
+            placeholder="Digite o seu E-mail"
+            func={setEmail}
+          />
+          <StyledInput label="Senha" pass={true} func={setSenha} />
+          <StyledInput
+            label="Confirme sua senha"
+            pass={true}
+            func={setConfSenha}
+          />
 
-    return(
-        <>
-            <Container>
-
-            <View style={styles.container2}>
-
-                <StatusBar/>
-
-                    <View>
-                        <CircleProfilePicture uriPicture={"user.image_url"} />
-                    </View>
-                    
-                    <View style={{alignItems: 'center'}}>
-                        {/* <ProfileName nmUser={"user.name"} /> */}
-                        <Text style={styles.userNametitle}>@{"user.name"}</Text>
-                        <Text style={styles.userEmailtitle}>Yuri@gmail.com</Text>
-                    </View>
-
-                <View style={styles.boxInput}>
-                    
-                    <Text style={styles.textLabel}>Nome</Text>
-                    <TextInput 
-                        style={styles.inputText}
-                        onChangeText={setNome}
-                        value={nome}
-                    ></TextInput>
-
-                    <Text style={styles.textLabel}>Nome de usuário</Text>
-                    <TextInput 
-                        style={styles.inputText}
-                        onChangeText={setNickname}
-                        value={nickname}
-                        placeholder={"@meunickname"}
-                    ></TextInput>
-
-
-                    <Text style={styles.textLabel}>E-mail</Text>
-                    <TextInput 
-                        style={styles.inputText}
-                        onChangeText={setEmail}
-                        value={email}
-                        ></TextInput>
-
-                    <Text style={styles.textLabel}>Senha</Text>
-                    <TextInput 
-                        style={styles.inputText}
-                        onChangeText={setSenha}
-                        value={senha}
-                        secureTextEntry={true}
-                        ></TextInput>
-
-                    <Text style={styles.textLabel}>Confirme sua Senha</Text>
-                    <TextInput 
-                        style={styles.inputText}
-                        onChangeText={setConfSenha}
-                        value={confSenha}
-                        secureTextEntry={true}
-                        ></TextInput>
-
-                    <Pressable 
-                        style={styles.buttonSave}
-                        onPress={salvarCadastro}
-                        >
-                        <Text style={styles.textButton}>Salvar</Text>
-                    </Pressable>
-                </View>
-                </View>
-            
-                </Container>
-        </>
-    )
+          <FlatButton text="CADASTRAR-SE" func={salvarCadastro} />
+        </InputContainer>
+      </Container>
+    </>
+  );
 }
