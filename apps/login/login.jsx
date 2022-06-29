@@ -31,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
   const [userEmail, userEmailSet] = React.useState();
   const [userPass, userPassSet] = React.useState();
 
-  // const { signed, SignInRequest } = useContext(AuthenticationContext);
+  const { signed, SignInRequest } = useContext(AuthenticationContext);
 
   const eventoParaCadastrar = () => {
     Alert.alert("Evento para cadastrar");
@@ -93,17 +93,22 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry={true}
           placeholder="Digite sua senha"
         />
-
-        <Text
-          style={{
-            alignSelf: "center",
-            marginTop: 35,
-            color: `${SecundaryColor}`,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("ForgotPassScreen");
           }}
         >
-          {" "}
-          ESQUECEU A SENHA?
-        </Text>
+          <Text
+            style={{
+              alignSelf: "center",
+              marginTop: 35,
+              color: `${SecundaryColor}`,
+            }}
+          >
+            ESQUECEU A SENHA?
+          </Text>
+        </TouchableOpacity>
+
         <FlatButton text="ENTRAR" func={onSubmissLogin} />
 
         <Text
