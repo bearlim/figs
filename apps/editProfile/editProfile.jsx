@@ -24,16 +24,19 @@ export default function EditProfile({ route, navigation }) {
     <Container>
       <Image style={styles.imagem} source={{ uri: user.image_url }} />
 
-      <Text style={styles.appText}>Nome</Text>
-      <StyledInput func={setNome} value={user.name} />
-      <Text style={styles.appText}>Usuário</Text>
-      <StyledInput value={user.userName} func={setUserName} />
-      <Text style={styles.appText}>E-mail</Text>
-      <StyledInput func={setEmail} value={user.email} />
-      <Text style={styles.appText}>Senha</Text>
-      <StyledInput pass={true} func={setSenha} />
-      <Text style={styles.appText}>Data de Nascimento</Text>
-      <StyledInput value={user.dtNascimento} func={setNascimento} />
+      <StyledInput func={setNome} value={user.name} label="Nome" />
+      <StyledInput
+        value={user.userName}
+        func={setUserName}
+        label="Apelido (Opcional)"
+      />
+      <StyledInput func={setEmail} value={user.email} label="Email" />
+      <StyledInput pass={true} func={setSenha} label="Senha" />
+      <StyledInput
+        value={user.dtNascimento}
+        func={setNascimento}
+        label="Data de Nascimento"
+      />
 
       <TouchableOpacity
         style={styles.btnAtualizar}
