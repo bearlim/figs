@@ -121,12 +121,12 @@ const LoginScreen = ({ navigation }) => {
         >
           Ou
         </Text>
-        <ContainerButtons>
-          <ButtonsContainer>
-            <SocialMediaButton social_media="logo-facebook" color="white" />
-            <SocialMediaButton social_media="logo-google" color="black" />
-          </ButtonsContainer>
-        </ContainerButtons>
+
+        <ButtonsContainer>
+          <SocialMediaButton social_media="logo-facebook" color="white" />
+          <SocialMediaButton social_media="logo-google" color="black" />
+        </ButtonsContainer>
+
         <ContainerForgotPassword>
           <TouchableOpacity
             onPress={() => navigation.navigate("RegistrationScreen")}

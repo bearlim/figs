@@ -20,8 +20,6 @@ export default function App() {
         <StatusBar backgroundColor={"transparent"} translucent={true} />
         <Routes />
       </AuthTunnel>
-      
-      
     </NavigationContainer>
   );
 }
